@@ -42,7 +42,7 @@ class ProductManager {
     async getProducts() {
         const data = await fs.promises.readFile(this.path, 'utf-8')
         const products = await JSON.parse(data)
-        console.log(products)
+        return products
     }
 
     async getProductById(id) {
@@ -75,70 +75,4 @@ class ProductManager {
     }
 }
 
-const productManager = new ProductManager('./products.txt')
-
-// productManager.getProducts()
-
-const product1 = {
-    title: 'producto1',
-    description: 'xxxxxxxxxxxx',
-    price: 1200,
-    thumbnail: 'htpp://xxxxxxxxxxxxx',
-    code: 'asfk2223kkk',
-    stock: 100
-}
-
-const product2 = {
-    title: 'producto2',
-    description: 'yyyyyyyyyyyyyy',
-    price: 5000,
-    thumbnail: 'htpp://yyyyyyyyyyyyy',
-    code: 'sdfskjdhf11111',
-    stock: 80
-}
-
-const product3 = {
-    title: 'producto3',
-    description: 'zzzzzzzzzzzzzzz',
-    price: 300,
-    thumbnail: 'htpp://zzzzzzzzzzzzzzzzzzzz',
-    code: 'sdkjhdgkjhs223r555',
-    stock: 50
-}
-
-// productManager.addProduct(product1)
-productManager.addProduct(product2)
-// productManager.addProduct(product3)
-
-// productManager.getProducts()
-
-const product4 = {
-    title: 'producto4',
-    description: 'zzzzzzzzzzzzzzz',
-    price: 300,
-    thumbnail: 'htpp://zzzzzzzzzzzzzzzzzzzz',
-    code: 'sdkjhdgkjhs223r555',
-    stock: 50
-}
-
-// productManager.addProduct(product4)
-
-// productManager.getProductById(2)
-
-const productToUpdate = {
-    title: 'producto2 actualizado',
-    description: 'ththththththth',
-    price: 5000,
-    thumbnail: 'htpp://yyyyyyyyyyyyy',
-    code: 'sdfskjdhf11111',
-    stock: 80,
-    id: 2
-}
-
-// productManager.updateProduct(productToUpdate)
-
-// productManager.getProducts()
-
-// productManager.deleteProduct(2)
-
-// productManager.getProducts()
+module.exports = ProductManager
