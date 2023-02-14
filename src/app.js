@@ -26,11 +26,8 @@ app.use('/api/products', routerProducts)
 app.use('/api/carts', routerCarts)
 
 // handlebars
-app.get('/realTimeProducts', async (req, res) => {
-    const products = await productManager.get()
-    res.render('home', {
-        products
-    })
+app.get('/realTimeProducts', (req, res) => {
+    res.render('home')
 })
 
 
@@ -40,6 +37,20 @@ const server = app.listen(PORT, () => {
 
 const io = new Server(server)
 
-io.on('connection', (socket) => {
+io.on('connection', async (socket) => {
     console.log(`Nueva conexion ${socket.id}`)
+    const products = await productManager.get()
+
+    socket.emit('products', products)
+
+    socket.on('newProduct', async data => {
+        await productManager.add(data)
+        const products = await productManager.get()
+        io.sockets.emit('products', products)
+    })
+
+    socket.on('delete', (id) => {
+        productManager.deleteById(id)
+        io.sockets.emit('products', products)
+    })
 })

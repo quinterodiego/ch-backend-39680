@@ -2,10 +2,10 @@
 
     <h1>Carga de Productos</h1>
 
-    <form>
+    <form id="form-products">
         <div class="mb-3">
-            <label for="name" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="name" name="name">
+            <label for="title" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="title" name="title">
         </div>
         <div class="mb-3">
             <label for="thumbnail" class="form-label">URL Imagen</label>
@@ -37,10 +37,18 @@
     <hr>
 
     <h2>Productos</h2>
-    <ul class="list-group">
-        {{#each products}}
-            <li class="list-group-item">{{this.title}}</li>
-        {{/each}}
-    </ul>
+     <table class="table table-dark mt-3">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Titulo</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Imagen</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody id="products">
+            </tbody>
+        </table>
 
 </div>
