@@ -1,0 +1,25 @@
+{
+  "name": "ch-backend-39680",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Product.Manager.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon ./src/app.js"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quinterodiego/ch-backend-39680.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/quinterodiego/ch-backend-39680/issues"
+  },
+  "homepage": "https://github.com/quinterodiego/ch-backend-39680#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^2.0.20"
+  }
+}
